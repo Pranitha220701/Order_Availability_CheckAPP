@@ -1,0 +1,57 @@
+﻿@model Order_Availability_CheckAPP.Models.FoodOrder
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Check Availability</h1>
+
+<h4>Please fill in the form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label">Customer Name</label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerMail" class="control-label">Customer Mail</label>
+                <input asp-for="CustomerMail" class="form-control" />
+                <span asp-validation-for="CustomerMail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemName" class="control-label">Food Item Name</label>
+                <input asp-for="ItemName" class="form-control" />
+                <span asp-validation-for="ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemQuantity" class="control-label">Item Quantity</label>
+                <input asp-for="ItemQuantity" class="form-control" />
+                <span asp-validation-for="ItemQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label">Payment Method</label>
+                <input asp-for="PaymentMethod" class="form-control" />
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Check Availability" class="btn btn-primary" />
+            </div>
+            <div>
+                <p>@ViewBag.MessageToScreent</p>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Create">Back to Form</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
